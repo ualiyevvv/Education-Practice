@@ -25,13 +25,10 @@ class UserController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
         ]);
-        $admin = false;
-        if($request->is_admin!=null) $admin = true;
         $user = User::create([
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
-            'is_admin' => $admin,
             'password' => bcrypt($request->password),
         ]);
 
