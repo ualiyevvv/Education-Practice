@@ -42,7 +42,7 @@
                                 <div class="shop-item__buy">
                                     <div class="shop-item__buy-price">{{ $order->price }} R</div>
                                     <div class="shop-item__buy-btn">
-                                        <a href="{{ route('shop.show', $order->id) }}" class="btn">купить</a>
+                                        <a href="{{ route('shop.show', $order->id) }}" class="btn">buy</a>
                                     </div>
                                 </div>
                             </div>

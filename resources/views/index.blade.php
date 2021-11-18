@@ -89,8 +89,8 @@
                     </div>
                     <div class="contacts-info__block">
                         WORKING HOURS: <br>
-                        MON-FRI: from 10Am ДО 22PM<br>
-                        SAT-SUN: from 10Am ДО 7Pm<br>
+                        MON-FRI: from 10Am to 22PM<br>
+                        SAT-SUN: from 10Am to 7Pm<br>
                     </div>
                 </div>
                 <div class="handler-block__btns">

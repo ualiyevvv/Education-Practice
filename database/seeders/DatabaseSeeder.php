@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'phone' => 8999,
             'is_admin' => 1,
-            'password' => bcrypt(123),
+            'password' => bcrypt('123'),
         ]);
         // \App\Models\User::factory(10)->create();
     }
