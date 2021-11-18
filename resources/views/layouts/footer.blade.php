@@ -3,9 +3,9 @@
         <div class="footer-block">
             <ul class="footer__how">
                 <li>БАРБЕРШОП «БОРОДИНСКИЙ»</li>
-                <li>АДРЕС: Г. САНКТ-ПЕТЕРБУРГ, УЛ. Б. КОНЮШЕННАЯ, Д. 19/8</li>
+                <li>АДРЕС: Г. Nur-Sultan, Sultan, Д. 19/8</li>
                 <li><a href="">КАК НАС НАЙТИ?</a></li>
-                <li>ТЕЛЕФОН: <a href="">+7 (495) 666-02-66</a></li>
+                <li>ТЕЛЕФОН: <a href="">+7 (777) 666-02-66</a></li>
             </ul>
         </div>
         <div class="footer-block">

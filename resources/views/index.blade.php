@@ -84,8 +84,8 @@
                 <div class="handler-block__info">
                     <div class="contacts-info__block">
                         БАРБЕРШОП «БОРОДИНСКИЙ» <br>
-                        АДРЕС: Г. САНКТ-ПЕТЕРБУРГ, Б. КОНЮШЕННАЯ, Д. 19/8<br>
-                        ТЕЛЕФОН: +7 (495) 666-02-66<br>
+                        АДРЕС: Г. Nur-Sultan, Sultan, Д. 19/8<br>
+                        ТЕЛЕФОН: +7 (777) 666-02-66<br>
                     </div>
                     <div class="contacts-info__block">
                         ВРЕМЯ РАБОТЫ: <br>
