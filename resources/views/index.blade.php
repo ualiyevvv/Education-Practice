@@ -59,7 +59,7 @@
                 </div>
                 <div class="handler-block__btns">
                     <div class="news__btn btn">
-                        <a href="">все новости</a>
+                        <a href="{{ route('news.index') }}">все новости</a>
                     </div>
                 </div>
             </div>

@@ -3,18 +3,7 @@
 @section('content')
     <section class="shop">
         <div class="container">
-            <div class="bread">
-                <div class="bread__title price-block__title">
-                    средства для ухода
-                </div>
-                <div class="bread__links">
-                    <ul>
-                        <li><a href="">Главная</a></li>
-                        <li><a href="">Магазин</a></li>
-                        <li class="active"><a href="">средства для ухода</a></li>
-                    </ul>
-                </div>
-            </div>
+            @include('layouts.bread')
             <div class="shop__main">
                 <div class="shop-sidebars">
                     <form action="">

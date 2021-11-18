@@ -15,6 +15,15 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('caption',255);
+            $table->text('content');
+            $table->text('file')->nullable();
+            $table->bigInteger('views')->unsigned()->default(0);
+            $table->bigInteger('likes')->unsigned()->default(0);
+            $table->bigInteger('dislikes')->unsigned()->default(0);
+            $table->bigInteger('user_id')->unsigned();
+            // $table->bigInteger('category_id')->unsigned()->nullable();
+            // $table->bigInteger('strike_id')->unsigned()->default(0);
             $table->timestamps();
         });
     }
