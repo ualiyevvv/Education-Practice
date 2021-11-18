@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,15 @@ class AdminController extends Controller
     public function index()
     {
         return view('admin.index');
+    }
+
+    public function news()
+    {
+        $posts = Post::orderBy('created_at','desc')
+            ->get();
+            
+        // $categories = Category::all();
+        return view('admin.news', compact('posts'));
     }
 
     /**

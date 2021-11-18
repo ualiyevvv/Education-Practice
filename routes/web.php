@@ -42,6 +42,11 @@ Route::group(['middleware' => 'auth'], function(){
 });
 Route::group(['prefix'=>'admin', 'middleware' => 'admin', 'namespace'=>'Admin'], function(){
     Route::get('/', [AdminController::class, 'index'])->name('admin');
-    Route::post('/news/store', [PostController::class, 'store'])->name('news.store');
-    Route::post('/shop/store', [ShopController::class, 'store'])->name('shop.store');
+    Route::get('/news', [AdminController::class, 'news'])->name('admin.news');
+    Route::get('/news', [AdminController::class, 'news'])->name('admin.news');
+    Route::post('/news/store', [PostController::class, 'store'])->name('admin.news.store');
+    Route::post('/news/{id}/update', [PostController::class, 'update'])->name('admin.news.update');
+    Route::get('/news/{id}/edit', [PostController::class, 'edit'])->name('admin.news.edit');
+    Route::delete('/news/{id}/delete', [PostController::class, 'destroy'])->name('admin.news.delete');
+    Route::post('/shop/store', [ShopController::class, 'store'])->name('admin.shop.store');
 });

@@ -48,13 +48,13 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-        
         if(Auth::attempt([
             'email' => $request->email,
             'password' => $request->password,
         ])){
+            
             $time = date('H:i:s');
-            session()->flash('success', "You logged in under the nickname: ". Auth::user()->nickname .", time: $time");
+            session()->flash('success', "You logged in under the name: ". Auth::user()->name .", time: $time");
             
             if(Auth::user()->is_admin)
             {

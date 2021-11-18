@@ -1,0 +1,9 @@
+
+body {
+    height: 100vh;
+    overflow: hidden !important;
+}
+.content-wrapper {
+    height: 100vh !important;
+    overflow: scroll !important;
+}
