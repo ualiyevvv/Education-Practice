@@ -10,6 +10,7 @@
                         <input class="input" name="email" type="email" placeholder="email">
                         <input class="input" name="name" type="text" placeholder="name">
                         <input class="input" name="phone" type="text" placeholder="phone">
+                        <input class="input" name="is_admin" type="checkbox" value="1">
                         <input class="input" name="password" type="password" placeholder="password">
                         <input class="input" name="password_confirmation" type="password" placeholder="repeat password">
                         <input class="btn" type="submit" value="Sign up">

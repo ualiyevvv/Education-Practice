@@ -18,17 +18,20 @@ class UserController extends Controller
 
     public function store(Request $request) 
     {
+        // dd($request->is_admin);
         $request->validate([
             'name' => 'required|unique:users',
             'phone' => 'required|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
         ]);
-
+        $admin = false;
+        if($request->is_admin!=null) $admin = true;
         $user = User::create([
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
+            'is_admin' => $admin,
             'password' => bcrypt($request->password),
         ]);
 

@@ -19,10 +19,8 @@ use App\Http\Controllers\Admin\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-    // dd($_SERVER['REQUEST_URI']);
-});
+
+Route::get('/', [MainController::class, 'index'])->name('home');
 
 
 Route::group(['middleware' => 'guest'], function(){
@@ -37,6 +35,7 @@ Route::get('/contacts', [MainController::class, 'contacts'])->name('contacts');
 Route::get('/news', [PostController::class, 'index'])->name('news.index');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/news/show/{id}', [PostController::class, 'show'])->name('news.show');
+Route::get('/shop/show/{id}', [ShopController::class, 'show'])->name('shop.show');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
@@ -44,4 +43,5 @@ Route::group(['middleware' => 'auth'], function(){
 Route::group(['prefix'=>'admin', 'middleware' => 'admin', 'namespace'=>'Admin'], function(){
     Route::get('/', [AdminController::class, 'index'])->name('admin');
     Route::post('/news/store', [PostController::class, 'store'])->name('news.store');
+    Route::post('/shop/store', [ShopController::class, 'store'])->name('shop.store');
 });

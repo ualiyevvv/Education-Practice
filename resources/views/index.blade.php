@@ -9,26 +9,26 @@
             <div class="promo-advantages">
                 <ul>
                     <li class="promo-advantages__li">
-                        <div class="promo-advantages-header title">быстро</div>
+                        <div class="promo-advantages-header title">Fast</div>
                         <div class="square"></div>
                         <div class="promo-advantages-text">
-                            МЫ ДЕЛАЕМ СВОЮ РАБОТУ БЫСТРО! ДВА ЧАСА ПРОЛЕТЯТ НЕЗАМЕТНО И ВЫ — СЧАСТЛИВЫЙ ОБЛАДАТЕЛЬ СТИЛЬНОЙ СТРИЖКИ-МИНУТКИ!
+                            WE DO OUR JOB FAST! TWO HOURS WILL FLY BY UNNOTICED AND YOU ARE THE LUCKY OWNER OF A STYLISH HAIRCUT-A MINUTE!
                         </div>
                     </li>
                     <li class="promo-advantages__li">
-                        <div class="promo-advantages-header title">круто</div>
+                        <div class="promo-advantages-header title">Awesome</div>
                         <div class="square"></div>
                         <div class="promo-advantages-text">
-                            ЗАБУДЬТЕ, КАК ВЫ СТРИГЛИСЬ РАНЬШЕ.
-                            МЫ СДЕЛАЕМ ИЗ ВАС ЗВЕЗДУ ФУТБОЛА ИЛИ КИНО!
-                            ВО ВСЯКОМ СЛУЧАЕ ВНЕШНЕ
+                        FORGET HOW YOU CUT YOUR HAIR BEFORE.
+                        WE WILL MAKE YOU A FOOTBALL OR MOVIE STAR!
+                        AT LEAST OUTWARDLY
                         </div>
                     </li>
                     <li class="promo-advantages__li">
-                        <div class="promo-advantages-header title">дорого</div>
+                        <div class="promo-advantages-header title">expensive</div>
                         <div class="square"></div>
                         <div class="promo-advantages-text">
-                            НАШИ МАСТЕРА — ПРОФЕССИОНАЛЫ СВОЕГО ДЕЛА И НЕ МОГУТ СТОИТЬ ДЕШЕВО. К ТОМУ ЖЕ, РАЗВЕ ЦЕНА НЕ ДАЕТ ОПРЕДЕЛЕНЫЙ СТАТУС?
+                            OUR CRAFTSMEN ARE PROFESSIONALS IN THEIR FIELD AND CANNOT BE CHEAP. BESIDES, DOESN'T THE PRICE GIVE A CERTAIN STATUS?
                         </div>
                     </li>
                 </ul>
@@ -38,41 +38,41 @@
     <section class="handler">
         <div class="container">
             <div class="news handler-block">
-                <div class="title">новости</div>
+                <div class="title">news</div>
                 <div class="handler-block__info">
                     <div class="articles">
+                    @if(count($posts)>0)
+                        @foreach($posts as $post)
                         <article>
-                            <div class="article__text">НАМ НАКОНЕЦ ЗАВЕЗЛИ ЯГЕРМАЙСТЕР! ТЕПЕРЬ ВЫ МОЖЕТЕ ПРОПУСТИТЬ СТАКАНЧИК ВО ВРЕМЯ СТРИЖКИ
+                            <div class="article__text">
+                                {{ $post->caption }}
                             </div>
                             <div class="article__date">
-                                11 января
+                                {{ $post->created_at }}
                             </div>
                         </article>
-                        <article>
-                            <div class="article__text">НАМ НАКОНЕЦ ЗАВЕЗЛИ ЯГЕРМАЙСТЕР! ТЕПЕРЬ ВЫ МОЖЕТЕ ПРОПУСТИТЬ СТАКАНЧИК ВО ВРЕМЯ СТРИЖКИ
-                            </div>
-                            <div class="article__date">
-                                11 января
-                            </div>
-                        </article>
+                        @endforeach
+                    @else 
+                        posts doesn't exist yet 
+                    @endif
                     </div>
                 </div>
                 <div class="handler-block__btns">
                     <div class="news__btn btn">
-                        <a href="{{ route('news.index') }}">все новости</a>
+                        <a href="{{ route('news.index') }}">all news</a>
                     </div>
                 </div>
             </div>
             <div class="gallery handler-block">
-                <div class="title">фотогалерея</div>
+                <div class="title">gallery</div>
                 <div class="handler-block__info">
                     <div class="slider">
 
                     </div>
                 </div>
                 <div class="handler-block__btns gallery__btns">
-                    <div class="gallery__btn btn"><a href="">назад</a></div>
-                    <div class="gallery__btn btn"><a href="">вперед</a></div>
+                    <div class="gallery__btn btn"><a href="">Previous</a></div>
+                    <div class="gallery__btn btn"><a href="">Next</a></div>
                 </div>
             </div>
         </div>
@@ -80,52 +80,52 @@
     <section class="handler">
         <div class="container">
             <div class="contacts handler-block">
-                <div class="title">контактная информация</div>
+                <div class="title">CONTACT INFORMATION</div>
                 <div class="handler-block__info">
                     <div class="contacts-info__block">
-                        БАРБЕРШОП «БОРОДИНСКИЙ» <br>
-                        АДРЕС: Г. Nur-Sultan, Sultan, Д. 19/8<br>
-                        ТЕЛЕФОН: +7 (777) 666-02-66<br>
+                        Barbershop «Borodinski» <br>
+                        Address: Nur-Sultan, Sultan avenue, house 19/8<br>
+                        Phone: +7 (777) 666-02-66<br>
                     </div>
                     <div class="contacts-info__block">
-                        ВРЕМЯ РАБОТЫ: <br>
-                        ПН—ПТ: С 10:00 ДО 22:00<br>
-                        СБ—ВС: С 10:00 ДО 19:00<br>
+                        WORKING HOURS: <br>
+                        MON-FRI: from 10Am ДО 22PM<br>
+                        SAT-SUN: from 10Am ДО 7Pm<br>
                     </div>
                 </div>
                 <div class="handler-block__btns">
-                    <div class="gallery__btn btn"><a href="">как проехать</a></div>
-                    <div class="gallery__btn btn"><a href="">обратная связь</a></div>
+                    <div class="gallery__btn btn"><a href="{{ route('contacts') }}">how to find</a></div>
+                    <div class="gallery__btn btn"><a href="tel:87776660266">to call</a></div>
                 </div>
             </div>
             <div class="follow handler-block">
-                <div class="title">записаться</div>
+                <div class="title">enrollment</div>
                 <div class="handler-block__info">
-                    УКАЖИТЕ ЖЕЛАЕМУЮ ДАТУ И ВРЕМЯ И МЫ СВЯЖЕМСЯ <br> С ВАМИ ДЛЯ ПОДТВЕРЖДЕНИЯ БРОНИ
+                SPECIFY THE DESIRED DATE AND TIME AND WE WILL CONTACT <br> CONTACT YOU TO CONFIRM YOUR RESERVATION
                 </div>
                 <div class="follow-form">
                     <form action="" class="form">
                         <div class="form__block">
                             <div class="form__block-bl">
-                                <label for="">дата</label>
-                                <input class="input" type="text" class="input">
+                                <label for="">date</label>
+                                <input class="input" type="date" class="input">
                             </div>
                             <div class="form__block-bl">
-                                <label for="">время</label>
-                                <input class="input" type="text" class="input">
+                                <label for="">time</label>
+                                <input class="input" type="time" class="input">
                             </div>
                         </div>
                         <div class="form__block">
                             <div class="form__block-bl">
-                                <label for="">Ваше имя</label>
+                                <label for="">First name</label>
                                 <input class="input" type="text" class="input">
                             </div>
                             <div class="form__block-bl">
-                                <label for="">телефон</label>
+                                <label for="">phone number</label>
                                 <input class="input" type="text" class="input">
                             </div>
                         </div>
-                        <input class="follow-form__btn btn" type="submit">
+                        <input class="follow-form__btn btn" type="submit" value="Sent">
                     </form>
                 </div>
             </div>

@@ -217,6 +217,7 @@ nav {
 }
 
 .article__text {
+    font-size: 18px;
     line-height: 26px;
 }
 .news article {
@@ -247,6 +248,7 @@ nav {
     color: white;
 }
 .input {
+    padding-left: 10px;
     border: 1px solid black;
     outline-color: #663d15;
 }
@@ -446,12 +448,24 @@ td {
 .item-gallery {
     width: 100%;
 }
+.item-gallery__main {
+    background-position: center;
+    -webkit-background-size: auto !important; /*cover*/
+    background-size: auto !important; /*cover*/
+    background-repeat: no-repeat;
+}
 .item-info {
     width: 100%;
     padding-left: 90px;
 }
 .item-info__article {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 20px;
+}
+.item-info__article span:last-child {
+    color: grey;
 }
 .item-info__descr {
     margin-top: 50px;
@@ -685,11 +699,29 @@ td {
 
 .single__img {
     width: 100%;
-    height: 400px;
+    height: 490px;
     margin-bottom: 40px;
+    position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0,0,0, .5);
+    
+    background-position: center;
+    -webkit-background-size: cover !important;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    border-radius: 12px 12px 0 0;
+}
+.single__img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
     border-radius: 12px 12px 0 0;
     background-color: rgba(0,0,0, .5);
 }
@@ -700,17 +732,22 @@ td {
     color: white;
     z-index: 11;
 }
-.single__img img {
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    -webkit-background-size: cover !important;
-    background-size: cover !important;
-    background-repeat: no-repeat;
-    border-radius: 12px 12px 0 0;
+.single__info {
+    font-size: 16px;
 }
+.single__add span {
+    color: grey;
+}
+/* .single__add span {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    z-index: 11;
+} */
 .single__header {
-    font-size: 38px;
+    font-size: 44px;
+    color: white;
+    z-index: 111;
 }
 .shop-pagination a {
     margin-right: 10px;

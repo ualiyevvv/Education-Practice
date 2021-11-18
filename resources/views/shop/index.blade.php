@@ -30,76 +30,30 @@
                 </div>
                 <div class="shop-catalog">
                     <div class="shop-catalog__wrapper">
+                    @if(count($orders)>0)
+                        @foreach($orders as $order)
                         <div class="shop-item">
-                            <div class="shop-item__photo">
-                                <img src="" alt="">
+                            <div class="shop-item__photo" style="background-image: url('{{ $order->file }}')">
                             </div>
                             <div class="shop-item__info">
                                 <div class="shop-item__header">
-                                    <p>Увлажняющий кондиционер</p> 
-                                    «Baxter of California»
+                                    {{ $order->caption }}
                                 </div>
                                 <div class="shop-item__buy">
-                                    <div class="shop-item__buy-price">1 900 R</div>
+                                    <div class="shop-item__buy-price">{{ $order->price }} R</div>
                                     <div class="shop-item__buy-btn">
-                                        <a href="" class="btn">купить</a>
+                                        <a href="{{ route('shop.show', $order->id) }}" class="btn">купить</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="shop-item">
-                            <div class="shop-item__photo">
-                                <img src="" alt="">
-                            </div>
-                            <div class="shop-item__info">
-                                <div class="shop-item__header">
-                                    <p>Увлажняющий кондиционер</p> 
-                                    «Baxter of California»
-                                </div>
-                                <div class="shop-item__buy">
-                                    <div class="shop-item__buy-price">1 900 R</div>
-                                    <div class="shop-item__buy-btn">
-                                        <a href="" class="btn">купить</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="shop-item">
-                            <div class="shop-item__photo">
-                                <img src="" alt="">
-                            </div>
-                            <div class="shop-item__info">
-                                <div class="shop-item__header">
-                                    <p>Увлажняющий кондиционер</p> 
-                                    «Baxter of California»
-                                </div>
-                                <div class="shop-item__buy">
-                                    <div class="shop-item__buy-price">1 900 R</div>
-                                    <div class="shop-item__buy-btn">
-                                        <a href="" class="btn">купить</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="shop-item">
-                            <div class="shop-item__photo">
-                                <img src="" alt="">
-                            </div>
-                            <div class="shop-item__info">
-                                <div class="shop-item__header">
-                                    <p>Увлажняющий кондиционер</p> 
-                                    «Baxter of California»
-                                </div>
-                                <div class="shop-item__buy">
-                                    <div class="shop-item__buy-price">1 900 R</div>
-                                    <div class="shop-item__buy-btn">
-                                        <a href="" class="btn">купить</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     
+                        {{ $orders->links('layouts.paginate') }}
+                    @else
+                        Товаров нет
+                    @endif
                 </div>
             </div>
         </div>

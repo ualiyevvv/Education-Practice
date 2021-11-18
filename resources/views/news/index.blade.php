@@ -17,6 +17,7 @@
             <div class="shop__main">
                 <div class="shop-catalog">
                     <div class="shop-catalog__wrapper">
+                    @if(count($posts))
                         @foreach($posts as $post)
                         <div class="shop-item">
                             <div class="shop-item__photo" style="background-image: url('..{{ $post->file }}');">
@@ -34,7 +35,10 @@
                         </div>
                         @endforeach
                     </div>
-                    {{ $posts->links('layouts.paginate') }}
+                        {{ $posts->links('layouts.paginate') }}
+                    @else
+                        Постов нет
+                    @endif
                 </div>
             </div>
         </div>
