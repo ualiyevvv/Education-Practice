@@ -44,7 +44,7 @@ class PostController extends Controller
             $path = $request->file('file')->store("uploads/{$folder}", 'public');
             $data['file'] = "/".$path;
         }else{
-            $data['file'] = null;
+            $data['file'] = '/img/default.jpg';
         }
         $post = Post::create($data);
 
@@ -68,7 +68,7 @@ class PostController extends Controller
             $path = $request->file('file')->store("uploads/{$folder}", 'public');
             $data['file'] = "/".$path;
         }else{
-            $data['file'] = null;
+            $data['file'] = '/img/default.jpg';
         }
         
         $post = Post::find($id);
@@ -103,37 +103,6 @@ class PostController extends Controller
         {
             return  redirect('/')->withErrors("You're going somewhere wrong");
         }
-        if(($post['strike_id'] == 1 or $post['strike_id'] == 3) && Auth::user()->is_admin != 1)
-        {
-            return redirect('/')->withErrors('The post is restricted');
-        }
-        
-        // $comments = Comment::where('post_id', $id)
-        //     ->with('user')
-        //     ->orderBy('created_at', 'desc')
-        //     ->get();
-                
-        // $post->increment('views');
-        // $strike = '';
-        // switch ($post->strike_id) {
-        //     case 0:
-        //         $strike = 'No restrictions';
-        //         break;
-        //     case 1:
-        //         $strike = 'Infringement';
-        //         break;
-        //     case 2:
-        //         $strike = 'Shadow ban';
-        //         break;
-        //     case 3:
-        //         $strike = 'Ban';
-        //         break;
-            
-        //     default:
-        //         $strike = 'No restrictions';
-        //         break;
-        // }
-
 
         return view('news.single', compact('post'));
     }

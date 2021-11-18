@@ -52,7 +52,7 @@
                     <!-- <a class="menu__li" href="">Информация</a> -->
                     <a class="menu__li <?=$classNews?>" href="{{ route('news.index') }}">новости </a>
                     <a class="menu__li <?=$classPrice?>" href="{{ route('price') }}">прайс-лист</a>
-                    <a class="menu__li <?=$classShop?>" href="">магазин</a>
+                    <a class="menu__li <?=$classShop?>" href="{{ route('shop.index') }}">магазин</a>
                     <a class="menu__li <?=$classContacts?>" href="{{ route('contacts') }}">контакты</a>
                 </nav>
                 <ul class="header__login">

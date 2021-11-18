@@ -34,12 +34,7 @@
                         </div>
                         @endforeach
                     </div>
-                    <div class="shop-pagination">
-                        <div class="shop-pagination__btn btn">1</div>
-                        <div class="shop-pagination__btn shop-pagination__btn-active btn">2</div>
-                        <div class="shop-pagination__btn btn">3</div>
-                        <div class="shop-pagination__btn btn">4</div>
-                    </div>
+                    {{ $posts->links('layouts.paginate') }}
                 </div>
             </div>
         </div>
