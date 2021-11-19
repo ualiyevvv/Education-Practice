@@ -2,6 +2,7 @@
 namespace Database\Seeders;
 
 use App\Models\Post;
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 
 class PostSeeder extends Seeder
