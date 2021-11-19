@@ -32,16 +32,16 @@
                     <div class="price-block__text">
                         <table>
                             <tr>
-                                <th>asddd</th>
-                                <td>a6sd</td>
+                                <th>haircut</th>
+                                <td>1500 R</td>
                             </tr>
                             <tr>
-                                <th>asdasdd</th>
-                                <td>as11d</td>
+                                <th>beard cutting</th>
+                                <td>500 R</td>
                             </tr>
                             <tr>
-                                <th>as2ddd</th>
-                                <td>assa44asd</td>
+                                <th>mustache cheat</th>
+                                <td>550 R</td>
                             </tr>
                         </table>
                     </div>
