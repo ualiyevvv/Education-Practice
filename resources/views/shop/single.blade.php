@@ -3,19 +3,7 @@
 @section('content')
 <section class="item">
     <div class="container">
-        <div class="bread">
-            <div class="bread__title price-block__title">
-                {{ $order->caption }}
-            </div>
-            <div class="bread__links">
-                <ul>
-                    <li><a href="">Главная</a></li>
-                    <li><a href="">Магазин</a></li>
-                    <li><a href="">средства для ухода</a></li>
-                    <li class="active">{{ $order->caption }}</li>
-                </ul>
-            </div>
-        </div>
+        @include('layouts.bread')
         <div class="item-block">
             <div class="item-gallery">
                 <div class="item-gallery__slider">
