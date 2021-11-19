@@ -76,5 +76,17 @@ class UserController extends Controller
         return redirect('/')->withErrors('You are logged out');
     }
 
+    public function destroy($id)
+    {
+        $order = Order::find($id);
+        if(!$order)
+        {
+            return  redirect()->back()->withErrors("you're going somewhere wrong");
+        }
+        $order->delete();
+
+        return redirect()->back()->with('success', 'Order has been deleted');
+    }
+
     
 }

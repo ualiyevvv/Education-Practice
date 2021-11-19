@@ -749,6 +749,11 @@ td {
     color: white;
     z-index: 111;
 }
+.single__descr {
+    text-transform: none;
+    font-size: 16px;
+    line-height: 2;
+}
 .shop-pagination a {
     margin-right: 10px;
     text-decoration: none;

@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use DB;
+use Database\Seeders\PostSeeder;
+use Database\Seeders\OrderSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +23,12 @@ class DatabaseSeeder extends Seeder
             'is_admin' => 1,
             'password' => bcrypt('123'),
         ]);
-        // \App\Models\User::factory(10)->create();
+        
+        $this->call([
+            PostSeeder::class,
+            OrderSeeder::class,
+        ]);
+        // \App\Models\Post::factory(21)->create();
+        // \App\Models\Order::factory(15)->create();
     }
 }

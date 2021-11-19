@@ -12,8 +12,14 @@ use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if($request->category){
+            $orders = Order::where('category', $_GET['category'])
+                ->orderBy('created_at','desc')
+                ->paginate(6);
+            return view('shop.index', compact('orders'));
+        }
         $orders = Order::orderBy('created_at','desc')
             ->paginate(6);
             
@@ -91,10 +97,9 @@ class ShopController extends Controller
         if($order->user_id !== \Auth::user()->id){
             return  redirect()->route('home')->withErrors('You cannot edit this order');
         }
-        $categories = Category::all();
 
 
-        return view('editPost',compact('order','categories'));
+        return view('shop.edit',compact('order'));
     }
 
     public function show($category, $caption)
@@ -111,33 +116,6 @@ class ShopController extends Controller
         return view('shop.single', compact('order'));
     }
 
-    public function like($id)
-    {
-        $order = Order::find($id);
-        if ($order->id)
-        {
-            $order->increment('likes');
-            return redirect()->route('shop.show',['id'=>$id])->with('success', 'Видео likes');
-        }
-        else
-        {
-            return  redirect()->back()->withErrors('Вы куда-то не туда');
-        }
-    }
-
-    public function dislike($id)
-    {
-        $order = Order::find($id);
-        if ($order->id)
-        {
-            $order->increment('dislikes');
-            return redirect()->route('shop.show',['id'=>$id])->with('success', 'Видео dislikes');
-        }
-        else
-        {
-            return  redirect()->back()->withErrors('Вы куда-то не туда');
-        }
-    }
 
 
     

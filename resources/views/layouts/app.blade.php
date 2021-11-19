@@ -22,7 +22,7 @@
         case '/news':
             $classNews = "menu__li-active";
             break;
-        case '/price':
+        case '/pricelist':
             $classPrice = "menu__li-active";
             break;
         case '/contacts':

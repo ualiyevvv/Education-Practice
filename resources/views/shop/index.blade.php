@@ -29,15 +29,15 @@
                                 Categories:
                             </div>
                             <div class="form-group">
-                                <input name="category" type="radio">
+                                <input name="category" type="radio" value="shaving accessories">
                                 <label for="">shaving accessories</label>
                             </div>
                             <div class="form-group">
-                                <input name="category" type="radio">
+                                <input name="category" type="radio" value="care products">
                                 <label for="">care products</label>
                             </div>
                             <div class="form-group">
-                                <input name="category" type="radio">
+                                <input name="category" type="radio" value="accessories">
                                 <label for="">accessories</label>
                             </div>
                         </div>
