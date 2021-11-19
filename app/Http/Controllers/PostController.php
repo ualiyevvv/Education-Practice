@@ -75,7 +75,7 @@ class PostController extends Controller
         
         $post->update($data);
 
-        return redirect()->route('news.show', $post->id)->with('success', 'Post updated');
+        return redirect()->route('news.show', $post->caption)->with('success', 'Post updated');
     }
 
     public function edit($id)
