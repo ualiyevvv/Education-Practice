@@ -6,14 +6,14 @@
             @include('layouts.bread')
             <div class="price__title">
                 <span></span>
-                <span>ИСТИННО МУЖСКАЯ КЛАССИКА</span>
+                <span>A TRULY MASCULINE CLASSIC</span>
                 <span></span>
             </div>
             <div class="price-row">
                 <div class="price-block">
                     <div class="price-block__title">
-                        МЫ ИСПОЛЬЗУЕМ ТОЛЬКО <br>
-                        ЛУЧШИЕ СРЕДСТВА:
+                        WE ONLY USE <br>
+                        THE BEST MEANS:
                     </div>
                     <div class="price-block__text">
                         <ul>
@@ -26,8 +26,8 @@
                 </div>
                 <div class="price-block">
                     <div class="price-block__title">
-                        ЦЕНЫ НА УСЛУГИ <br>
-                        НАШИХ МАСТЕРОВ:
+                        PRICES FOR SERVICES <br>
+                        OUR MASTERS:
                     </div>
                     <div class="price-block__text">
                         <table>
@@ -50,14 +50,14 @@
             <div class="price-row">
                 <div class="price-block__special-text">
                     <div class="price-block__title">
-                        НЕСКОЛЬКО СЛОВ О НАС:
+                        A FEW WORDS ABOUT US:
                     </div>
                     <ul>
                         <li>
-                            Наша парикмахерская занимается исключительно мужскими стрижками. Стрижка каждого клиента для нас - это уникальная и продуманная до мелочей работа. Мы не работаем на количество, мы делаем качество.
+                            Our barber shop deals exclusively with men's haircuts. For us, the haircut of each client is a unique and well-thought-out job. We don't work on quantity, we do quality.
                         </li>
                         <li>
-                            Наша мастерская расположена в центре города, поэтому сделать стильную стрижку можно в любое время, даже в обеденный перерыв. Здесь вы можете погрузиться в удобную для вас атмосферу, чувствовать себя комфортно и свободно!
+                            Our workshop is located in the city center, so you can get a stylish haircut at any time, even during lunch break. Here you can immerse yourself in the atmosphere that is convenient for you, feel comfortable and free!
                         </li>
                     </ul>
                 </div>
