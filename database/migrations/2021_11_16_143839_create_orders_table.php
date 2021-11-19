@@ -18,6 +18,8 @@ class CreateOrdersTable extends Migration
             $table->string('caption',255);
             $table->text('description');
             $table->integer('price')->unsigned();
+            $table->string('category',255);
+            $table->string('maker',255);
             $table->text('file')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();

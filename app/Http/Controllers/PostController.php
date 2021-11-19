@@ -56,9 +56,11 @@ class PostController extends Controller
 
         $request->validate([
             'caption' => 'required',
+            'content' => 'required',
             // 'category_id' => 'required',
             'file' => 'mimes:jpg,jpeg,png',
         ]);
+        $post = Post::find($id);
 
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
@@ -68,13 +70,12 @@ class PostController extends Controller
             $path = $request->file('file')->store("uploads/{$folder}", 'public');
             $data['file'] = "/".$path;
         }else{
-            $data['file'] = '/img/default.jpg';
+            $data['file'] = $post->file;
         }
         
-        $post = Post::find($id);
         $post->update($data);
 
-        return redirect()->route('post.show', ['id'=>$post->id])->with('success', 'Post updated');
+        return redirect()->route('news.show', $post->id)->with('success', 'Post updated');
     }
 
     public function edit($id)
@@ -87,15 +88,15 @@ class PostController extends Controller
         if($post->user_id !== \Auth::user()->id){
             return  redirect()->route('home')->withErrors('You cannot edit this post');
         }
-        $categories = Category::all();
+        // $categories = Category::all();
 
 
-        return view('editPost',compact('post','categories'));
+        return view('news.edit',compact('post'));
     }
 
-    public function show($id)
+    public function show($caption)
     {
-        $post = Post::where('id', $id)
+        $post = Post::where('caption', $caption)
             ->with('user')
             ->first();
         
@@ -105,34 +106,6 @@ class PostController extends Controller
         }
 
         return view('news.single', compact('post'));
-    }
-
-    public function like($id)
-    {
-        $post = Post::find($id);
-        if ($post->id)
-        {
-            $post->increment('likes');
-            return redirect()->route('post.show',['id'=>$id])->with('success', 'Видео likes');
-        }
-        else
-        {
-            return  redirect()->back()->withErrors('Вы куда-то не туда');
-        }
-    }
-
-    public function dislike($id)
-    {
-        $post = Post::find($id);
-        if ($post->id)
-        {
-            $post->increment('dislikes');
-            return redirect()->route('post.show',['id'=>$id])->with('success', 'Видео dislikes');
-        }
-        else
-        {
-            return  redirect()->back()->withErrors('Вы куда-то не туда');
-        }
     }
 
 

@@ -3,6 +3,7 @@
 @section('content')
     <section class="single">
         <div class="container">
+            @include('layouts.bread')
             <div class="single__img" style="background-image: url('{{ $post->file }}')"> 
                 <div class="single__header">{{ $post->caption }}</div>
                 <span>{{ $post->user->name }}</span>

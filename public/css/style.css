@@ -538,7 +538,7 @@ td {
     width: 100%;
 }
 .shop-sidebars__bl {
-    margin-top: 55px;
+    margin-top: 25px;
 }
 .shop-sidebars__bl:first-child {
     margin-top: 0;
@@ -550,7 +550,7 @@ td {
     margin-top: 40px;
 }
 .shop-sidebars__btn .btn {
-    margin-top: 55px;
+    margin-top: 35px;
     color: white;
 }
 .shop-catalog__wrapper {
@@ -758,4 +758,7 @@ td {
 }
 .shop-pagination__btn-active {
     border: 1px solid #c4c4c4;
+}
+.input {
+    text-transform: none;
 }

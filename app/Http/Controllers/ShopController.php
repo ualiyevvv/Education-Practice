@@ -33,6 +33,8 @@ class ShopController extends Controller
         $request->validate([
             'caption' => 'required',
             'description' => 'required',
+            'category' => 'required',
+            'maker' => 'required',
             'price' => 'required|integer',
             // 'category_id' => 'required',
             'file' => 'mimes:jpg,jpeg,png',
@@ -50,7 +52,7 @@ class ShopController extends Controller
         }
         $order = Order::create($data);
 
-        return redirect()->route('shop.show', ['id'=>$order->id])->with('success', 'Order added');
+        return redirect()->route('shop.show', ['category'=>"$order->category",'caption'=>"$order->caption"])->with('success', 'Order added');
     }
 
     public function update($id, Request $request)
@@ -76,7 +78,7 @@ class ShopController extends Controller
         $order = Order::find($id);
         $order->update($data);
 
-        return redirect()->route('shop.show', ['id'=>$order->id])->with('success', 'Order updated');
+        return redirect()->route('shop.show', ['category'=>"$order->category",'caption'=>"$order->caption"])->with('success', 'Order updated');
     }
 
     public function edit($id)
@@ -95,10 +97,10 @@ class ShopController extends Controller
         return view('editPost',compact('order','categories'));
     }
 
-    public function show($id)
+    public function show($category, $caption)
     {
-        $order = Order::where('id', $id)
-            ->with('user')
+        $order = Order::where('category', $category)
+            ->where('caption', $caption)
             ->first();
         
         if(!$order)

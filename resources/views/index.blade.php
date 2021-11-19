@@ -99,7 +99,7 @@
                 </div>
             </div>
             <div class="follow handler-block">
-                <div class="title">enrollment</div>
+                <div class="title">QUEUE ENTRY</div>
                 <div class="handler-block__info">
                 SPECIFY THE DESIRED DATE AND TIME AND WE WILL CONTACT <br> CONTACT YOU TO CONFIRM YOUR RESERVATION
                 </div>

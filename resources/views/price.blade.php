@@ -3,17 +3,7 @@
 @section('content')
     <section class="price">
         <div class="container">
-            <div class="bread">
-                <div class="bread__title price-block__title">
-                    прайс-лист
-                </div>
-                <div class="bread__links">
-                    <ul>
-                        <li><a href="">Главная</a></li>
-                        <li class="active"><a href="">прайс-лист</a></li>
-                    </ul>
-                </div>
-            </div>
+            @include('layouts.bread')
             <div class="price__title">
                 <span></span>
                 <span>ИСТИННО МУЖСКАЯ КЛАССИКА</span>

@@ -6,25 +6,43 @@
             @include('layouts.bread')
             <div class="shop__main">
                 <div class="shop-sidebars">
-                    <form action="">
+                    <form action="{{ route('shop.index') }}" method="GET">
                         <div class="shop-sidebars__bl">
                             <div class="shop-sidebars__bl-header">
-                                производители:
+                                Manufacturers:
                             </div>
-                            <div class="shop-sidebars__bl-list">
-
+                            <div class="form-group">
+                                <input name="maker" type="checkbox">
+                                <label for="">baxter of california</label>
+                            </div>
+                            <div class="form-group">
+                                <input name="maker" type="checkbox">
+                                <label for="">me natty</label>
+                            </div>
+                            <div class="form-group">
+                                <input name="maker" type="checkbox">
+                                <label for="">murray's</label>
                             </div>
                         </div>
                         <div class="shop-sidebars__bl">
                             <div class="shop-sidebars__bl-header">
-                                Группы товаров:
+                                Categories:
                             </div>
-                            <div class="shop-sidebars__bl-list">
-                                
+                            <div class="form-group">
+                                <input name="category" type="radio">
+                                <label for="">shaving accessories</label>
+                            </div>
+                            <div class="form-group">
+                                <input name="category" type="radio">
+                                <label for="">care products</label>
+                            </div>
+                            <div class="form-group">
+                                <input name="category" type="radio">
+                                <label for="">accessories</label>
                             </div>
                         </div>
                         <div class="shop-sidebars__btn">
-                            <input class="btn" type="submit" value="Показать">
+                            <input class="btn" type="submit" value="View">
                         </div>
                     </form>
                 </div>
@@ -42,7 +60,7 @@
                                 <div class="shop-item__buy">
                                     <div class="shop-item__buy-price">{{ $order->price }} R</div>
                                     <div class="shop-item__buy-btn">
-                                        <a href="{{ route('shop.show', $order->id) }}" class="btn">buy</a>
+                                        <a href='{{ route("shop.show", ["category"=>"$order->category","caption"=>"$order->caption"]) }}' class="btn">buy</a>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +70,7 @@
                     
                         {{ $orders->links('layouts.paginate') }}
                     @else
-                        Товаров нет
+                        Orders doesn't exist
                     @endif
                 </div>
             </div>

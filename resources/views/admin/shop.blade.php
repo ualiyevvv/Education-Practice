@@ -22,7 +22,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">News</li>
+              <li class="breadcrumb-item active">Orders</li>
             </ol>
           </div>
         </div>
@@ -34,7 +34,7 @@
         <!-- Default box -->
         <div class="card collapsed-card">
           <div class="card-header">
-            <h3 class="card-title">Add new post</h3>
+            <h3 class="card-title">Add new order</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -48,7 +48,7 @@
         <div class="card-body">
         <div class="card-body p-0">
             <!-- form start -->
-            <form action="{{ route('admin.news.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.shop.store') }}" method="POST" enctype="multipart/form-data">
                @csrf
                <div class="card-body">
                     <div class="form-group">
@@ -56,8 +56,30 @@
                         <input type="text" class="form-control @error('caption') is-invalid @enderror" name="caption" id="caption" placeholder="Enter caption" value="{{ old('caption') }}">
                     </div>
                     <div class="form-group">
-                        <label for="content">Content</label>
-                        <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" cols="30" rows="10">{{ old('content') }}</textarea>
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" id="description" placeholder="Enter caption" value="{{ old('caption') }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control @error('price') is-invalid @enderror" name="price" id="price" placeholder="Enter caption" value="{{ old('caption') }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select name="category" id="category">
+                            <option value="null" disabled selected>choise a category</option>
+                            <option value="shaving accessories">shaving accessories</option>
+                            <option value="care products">care products</option>
+                            <option value="accessories">accessories</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="maker">Maker</label>
+                        <select name="maker" id="maker">
+                            <option value="null" disabled selected>choise a maker</option>
+                            <option value="baxter of california">baxter of california</option>
+                            <option value="me natty">me natty</option>
+                            <option value="murray's">murray's</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="content">Image</label>
@@ -76,7 +98,7 @@
         <!-- Default box -->
       <div class="card">
           <div class="card-header">
-            <h3 class="card-title">All news</h3>
+            <h3 class="card-title">All orders</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -98,40 +120,58 @@
                         <th style="width: 20%">
                             Caption
                         </th>
+                        <th style="width: 20%">
+                            price
+                        </th>
+                        <th style="width: 20%">
+                            category
+                        </th>
+                        <th style="width: 20%">
+                            maker
+                        </th>
                         <th style="width: 20%" class="text-center">
                             Date
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @if(count($posts) > 0)
-                    @foreach($posts as $post)
+                    @if(count($orders) > 0)
+                    @foreach($orders as $order)
                     <tr>
                         <td>
-                            {{ $post->id }}
+                            {{ $order->id }}
                         </td>
                         <td>
-                            {{ $post->caption }}
+                            {{ $order->caption }}
                         </td>
                         <td>
-                            {{ $post->created_at }}
+                            {{ $order->price }}
+                        </td>
+                        <td>
+                            {{ $order->category }}
+                        </td>
+                        <td>
+                            {{ $order->maker }}
+                        </td>
+                        <td>
+                            {{ $order->created_at }}
                         </td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="{{ route('admin.news.edit', $post->id) }}">
+                            <a class="btn btn-info btn-sm" href="{{ route('admin.shop.edit', $order->id) }}">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger btn-sm" href="{{ route('admin.news.delete', $post->id) }}" 
+                            <a class="btn btn-danger btn-sm" href="{{ route('admin.shop.delete', $order->id) }}" 
                             onclick="event.preventDefault();
                                     document.getElementById('delete-form').submit();">
                                 <i class="fas fa-trash">
                                 </i>
                                 Delete
                             </a>
-                            <form id="delete-form" action="{{ route('admin.news.delete',$post->id) }}"
+                            <form id="delete-form" action="{{ route('admin.shop.delete',$order->id) }}"
                              method="post"
-                             onsubmit="if(confirm('Delete the post?')){return true}else{return false}" >
+                             onsubmit="if(confirm('Delete the order?')){return true}else{return false}" >
                                 @csrf
                                 @method("DELETE")
                             </form>
@@ -139,7 +179,7 @@
                     </tr>
                     @endforeach
                     @else
-                        <p>Posts doesn't exist yet</p>
+                        <p>Orders doesn't exist yet</p>
                     @endif
                 </tbody>
             </table>

@@ -30,12 +30,12 @@ Route::group(['middleware' => 'guest'], function(){
     Route::post('/login/store', [UserController::class, 'login'])->name('login.store');
 
 });
-Route::get('/price', [MainController::class, 'price'])->name('price');
+Route::get('/pricelist', [MainController::class, 'price'])->name('price');
 Route::get('/contacts', [MainController::class, 'contacts'])->name('contacts');
 Route::get('/news', [PostController::class, 'index'])->name('news.index');
+Route::get('/news/{caption}', [PostController::class, 'show'])->name('news.show');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
-Route::get('/news/show/{id}', [PostController::class, 'show'])->name('news.show');
-Route::get('/shop/show/{id}', [ShopController::class, 'show'])->name('shop.show');
+Route::get('/shop/{category}/{caption}', [ShopController::class, 'show'])->name('shop.show');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
@@ -43,10 +43,13 @@ Route::group(['middleware' => 'auth'], function(){
 Route::group(['prefix'=>'admin', 'middleware' => 'admin', 'namespace'=>'Admin'], function(){
     Route::get('/', [AdminController::class, 'index'])->name('admin');
     Route::get('/news', [AdminController::class, 'news'])->name('admin.news');
-    Route::get('/news', [AdminController::class, 'news'])->name('admin.news');
+    Route::get('/shop', [AdminController::class, 'shop'])->name('admin.shop');
     Route::post('/news/store', [PostController::class, 'store'])->name('admin.news.store');
     Route::post('/news/{id}/update', [PostController::class, 'update'])->name('admin.news.update');
     Route::get('/news/{id}/edit', [PostController::class, 'edit'])->name('admin.news.edit');
     Route::delete('/news/{id}/delete', [PostController::class, 'destroy'])->name('admin.news.delete');
     Route::post('/shop/store', [ShopController::class, 'store'])->name('admin.shop.store');
+    Route::post('/shop/{id}/update', [ShopController::class, 'update'])->name('admin.shop.update');
+    Route::get('/shop/{id}/edit', [ShopController::class, 'edit'])->name('admin.shop.edit');
+    Route::delete('/shop/{id}/delete', [PostController::class, 'destroy'])->name('admin.shop.delete');
 });

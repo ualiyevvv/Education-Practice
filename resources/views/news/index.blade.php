@@ -2,18 +2,8 @@
 
 @section('content')
     <section class="news">
-        <div class="container">
-            <div class="bread">
-                <div class="bread__title price-block__title">
-                    Новости
-                </div>
-                <div class="bread__links">
-                    <ul>
-                        <li><a href="">Главная</a></li>
-                        <li class="active"><a href="">Новости</a></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="container"> 
+            @include('layouts.bread')
             <div class="shop__main">
                 <div class="shop-catalog">
                     <div class="shop-catalog__wrapper">
@@ -28,7 +18,7 @@
                                 </div>
                                 <div class="shop-item__buy">
                                     <div class="shop-item__buy-btn">
-                                        <a href="{{ route('news.show', $post->id) }}" class="btn">Read all</a>
+                                        <a href="{{ route('news.show', $post->caption) }}" class="btn">Read all</a>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +27,7 @@
                     </div>
                         {{ $posts->links('layouts.paginate') }}
                     @else
-                        Постов нет
+                        Posts doesn't exist
                     @endif
                 </div>
             </div>
