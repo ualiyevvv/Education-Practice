@@ -1,4 +1,5 @@
 <a href="http://barbershoppp.herokuapp.com/">DEMO</a>
+## Features:
 - web layout
 - CRUD  
 - Laravel factories for create fake posts
